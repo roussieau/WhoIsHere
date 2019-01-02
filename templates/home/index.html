@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Who is at the kot ?</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}" />
+    </head>
+    <body>
+        <div id="title" class="container-fluid pull-right">
+            <h1>Who is at the kot ?</h1>
+        </div>
+        <div id="page" class="container-fluid">
+            <div class="row">
+              {% for people in peoples_status %}
+                  <div class="col-md-3">
+                      {% if people.is_online %}
+                          <div class="card people">
+                            <img src="{{ people.photo.url }}" class="img-fluid rounded-circle">
+                            <p class="people-name">{{ people.name }}</p>
+                          </div>
+                      {% else %}
+                          <div class="card people offline">
+                              <img src="{{ people.photo.url }}" class="img-fluid rounded-circle">
+                              <p class="people-name">{{ people.name }}</p>
+                          </div>
+                      {% endif %}
+                  </div>
+
+                  {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+                      </div><div class="row">
+                  {% endif %}
+              {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
