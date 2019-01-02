@@ -1,0 +1,35 @@
+#title{
+    background: #4C5C68;
+    font-family: Phosphate-Inline;
+    font-size: 79px;
+    color: #FFFFFF;
+    padding:0.5em;
+    text-align: center;
+}
+
+#page{
+    padding-top:2em;
+}
+
+body{
+    background: #C5C3C6;
+}
+
+.people{
+    background: rgba(25,133,161,0.50);
+    border-radius: 15px;
+    padding: 1.5em;
+    margin:1.2em;
+}
+
+.people-name{
+    margin-top:10px;
+    margin-bottom:-10px;
+    color:white;
+    font-size: 2em;
+    text-align: center;
+}
+
+.offline img{
+    -webkit-filter: blur(10px);
+}
