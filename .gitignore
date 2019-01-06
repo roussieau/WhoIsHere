@@ -1,0 +1,12 @@
+# macOS files
+.DS_Store
+
+# Pipenv files
+Pipfile
+
+# Django files
+db.sqlite3
+media/
+
+# Python files
+__pycache__/
