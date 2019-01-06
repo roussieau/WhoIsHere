@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import People, IP
+from .models import People, IP, OnlineLog
 import os
 
 def index(request):
@@ -11,11 +11,9 @@ def get_status():
     return [{'name': people.name,
             'photo': people.photo,
             'is_online': is_people_online(people)}
-        for people in People.objects.all().order_by('-name')]
+        for people in People.objects.all()]
 
 def is_people_online(people):
-    """ Check if the given People is connected to the network """
-    for ip in IP.objects.filter(people=people):
-        if os.system("ping -o -c 3 -W 3000 {}".format(ip.ip)) == 0:
-            return True
-    return False
+    """ Return the last log concering the given People """
+    people_logs = OnlineLog.objects.filter(people=people)
+    return people_logs.first().is_online if len(people_logs) != 0 else False
