@@ -24,6 +24,27 @@ class IP(models.Model):
     def __str__(self):
         return self.ip
 
+    def save(self, force_insert=False, force_update=False):
+        self.ip = self.ip.upper()
+        super(MacAddress, self).save(force_insert, force_update)
+
+
+class MacAddress(models.Model):
+    people = models.ForeignKey(People, on_delete=models.CASCADE, default=None)
+    mac_address = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'MAC Address'
+        verbose_name_plural = 'MAC Addresses'
+        ordering = ['people']
+
+    def __str__(self):
+        return self.mac_address
+
+    def save(self, force_insert=False, force_update=False):
+        self.mac_address = self.mac_address.upper()
+        super(MacAddress, self).save(force_insert, force_update)
+
 
 class OnlineLog(models.Model):
     date = models.DateTimeField(default=timezone.now)
