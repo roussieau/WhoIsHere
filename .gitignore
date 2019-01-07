@@ -2,7 +2,7 @@
 .DS_Store
 
 # Pipenv files
-Pipfile
+Pipfile.lock
 
 # Django files
 db.sqlite3
