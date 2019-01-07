@@ -8,10 +8,10 @@ def index(request):
 
 def get_status():
     """ Return the status of the every People in the database """
-    return [{'name': people.name,
+    return sorted([{'name': people.name,
             'photo': people.photo,
             'is_online': is_people_online(people)}
-        for people in People.objects.all()]
+        for people in People.objects.all()], key=lambda entry: entry['is_online'], reverse=True)
 
 def is_people_online(people):
     """ Return the last log concering the given People """
