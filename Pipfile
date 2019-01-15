@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 django = "==2.1.5"
 django-common-helpers = "==0.9.2"
-django-crontab = "==0.7.1"
 pytz = "==2018.7"
 Pillow = "==5.4.0"
 

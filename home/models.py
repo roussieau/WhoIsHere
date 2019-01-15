@@ -12,23 +12,6 @@ class People(models.Model):
         return self.name
 
 
-class IP(models.Model):
-    people = models.ForeignKey(People, on_delete=models.CASCADE, default=None)
-    ip = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name = 'IP'
-        verbose_name_plural = 'IPs'
-        ordering = ['people']
-
-    def __str__(self):
-        return self.ip
-
-    def save(self, force_insert=False, force_update=False):
-        self.ip = self.ip.upper()
-        super(MacAddress, self).save(force_insert, force_update)
-
-
 class MacAddress(models.Model):
     people = models.ForeignKey(People, on_delete=models.CASCADE, default=None)
     mac_address = models.CharField(max_length=50)

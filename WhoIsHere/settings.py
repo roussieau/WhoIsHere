@@ -37,12 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_crontab',
     'home',
-]
-
-CRONJOBS = [
-    ('*/10 * * * *', 'home.cron.add_online_logs')
 ]
 
 MIDDLEWARE = [

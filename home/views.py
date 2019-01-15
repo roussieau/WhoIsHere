@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import People, IP, OnlineLog
+from .models import People, OnlineLog
 import os
 
 def index(request):
