@@ -1,0 +1,1 @@
+*/10 * * * * /Users/laurent/Documents/CarpeStudentem/WhoIsHere/home/cron/cron_job.sh 2> /tmp/WhoIsHere.err
